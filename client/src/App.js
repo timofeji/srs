@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import SimpleStorageContract from "./contracts/SimpleStorage.json";
+import SimpleRedistributionScheme from "./contracts/SimpleRedistributionScheme.json";
 import getWeb3 from "./getWeb3";
 
 import "./App.css";
@@ -17,16 +17,16 @@ class App extends Component {
 
       // Get the contract instance.
       const networkId = await web3.eth.net.getId();
-      const deployedNetwork = SimpleStorageContract.networks[networkId];
+      const deployedNetwork = SimpleRedistributionScheme.networks[networkId];
       const instance = new web3.eth.Contract(
-        SimpleStorageContract.abi,
+        SimpleRedistributionScheme.abi,
         deployedNetwork && deployedNetwork.address
       );
+
 
       // Set web3, accounts, and contract to the state, and then proceed with an
       // example of interacting with the contract's methods.
       this.setState({ web3, accounts, contract: instance }, this.runExample);
-
     } catch (error) {
       // Catch any errors for any of the above operations.
       alert(
@@ -41,13 +41,24 @@ class App extends Component {
     // Stores a given value, 5 by default.
     // await contract.methods.set(5).send({ from: accounts[0] });
 
-    await contract.methods.set(51).send({ from: accounts[0] });
-
+    // await contract.methods.contribute.call({
+    //   from: accounts[0],
+    //   gas: 300000,
+    //   value: 1000,
+    // });
     // Get the value from the contract to prove it worked.
-    const response = await contract.methods.get().call();
+    // const response = await contract.methods.getTotalFund().call();
+
+    const weiRaisedValue = await contract.methods.totalWeiRaised();
+    console.log(weiRaisedValue);
+
+    // contract.methods.totalWeiRaised.call().then(function (result) {
+    //   console.log(result);
+    // });
 
     // Update state with the result.
-    this.setState({ storageValue: response });
+    // this.setState({ storageValue: response });
+
   };
 
   render() {
@@ -57,8 +68,11 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Simple Redistribution Scheme</h1>
-        <p>SRS is an ethereum based UBI, based on a simple redistribution scheme that splits , or as we like to call it: a reverse 
-          ponzi scheme that benefits the poor and disadvantages the rich.
+        <p>
+          SRS is an ethereum based UBI, based on a simple redistribution scheme
+          that splits funds equally amongst all contributors, or as we like to
+          call it: a reverse ponzi scheme that benefits the poor and
+          disadvantages the rich.
         </p>
 
         <a href="ethereum.org">Click Here to read the white paper</a>

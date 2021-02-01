@@ -1,33 +1,32 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.4.21 <0.7.0;
+pragma solidity ^0.7.4;
 
-
-struct Contributor{
-
-}
 
 contract SimpleRedistributionScheme {
-  uint storedData;
 
   uint public minimumContribution;
-  uint public totalRaised;
+  uint public totalWeiRaised = 100;
 
-  mapping(address => Contributor) public contributors;
+  mapping(address => bool) public contributors;
 
 
-  function contribute() payable{
+  constructor(){
+
+  }
+
+  function contribute() payable public {
     require(msg.value > minimumContribution);
 
     contributors[msg.sender] = true;
 
-    totalRaised += msg.value;
+    totalWeiRaised += msg.value;
   }
 
-  function set(uint x) public {
-    storedData = x;
+  function releaseFunds() private {
+
   }
 
-  function get() public view returns (uint) {
-    return storedData;
+  function getTotalFund() public view returns (uint) {
+    return totalWeiRaised;
   }
 }
