@@ -39,11 +39,9 @@ class App extends Component {
 
   runExample = async () => {
     const { web3, accounts, contract } = this.state;
-    // Stores a given value, 5 by default.
-    // await contract.methods.set(5).send({ from: accounts[0] });
     const weiRaisedValue = await contract.methods.totalWeiRaised().call();
-
     const totalRaised = web3.utils.fromWei(weiRaisedValue, "ether");
+
     this.setState({ totalFund: totalRaised });
   };
 
@@ -67,23 +65,22 @@ class App extends Component {
     return (
       <div className="App">
         <img className="App-Landing" src={bgImg} alt="BigCo Inc. logo" />
+        <p className="App-Wallet">Connected wallet: {this.state.accounts[0]}</p>
         <div className="App-header">
           <div className="container">
             <h1>Simple Redistribution Scheme</h1>
             <p>
-              SRS is a simple ethereum based UBI, based on a simple
-              redistribution scheme that splits funds equally amongst all
+              SRS is a simple ethereum-based UBI, based on a monthly
+              redistribution cycle that splits funds equally amongst all
               contributors; or as we like to call it: a reverse ponzi scheme
               that benefits the poor and disadvantages the rich.
             </p>
 
-            <button onClick={this.OnContribute} class="btn btn-primary">
+            <button onClick={this.OnContribute} className="btn btn-primary">
               Contribute
             </button>
             <br></br>
-            <a href="ethereum.org">Click Here to read the white paper</a>
-            <h2>Currently Raised</h2>
-            <div>The total fund value is: {this.state.storageValue} Ξ</div>
+            <div>The total fund value is: {this.state.totalFund} Ξ</div>
           </div>
         </div>
       </div>

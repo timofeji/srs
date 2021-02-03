@@ -22,6 +22,10 @@
   color: white;
 }
 
+.App-header p{
+  color:rgb(161, 161, 161);
+}
+
 .App-link {
   color: #09d3ac;
 }
@@ -35,10 +39,17 @@
   height: 100vh;
   width: 100vw;
   max-width:100%;
-  filter: brightness(50%);
-  }
+  filter: brightness(45%);
+}
 
-
-.App-Landing{
-
+.App-Wallet{
+  position: fixed;
+  left: 50%;
+  padding: 5px;
+  top: 0px;
+  font-size: 8px;
+  text-align: center;
+  color: black;
+  background-color: white;
+  transform: translateX(-50%);
 }
