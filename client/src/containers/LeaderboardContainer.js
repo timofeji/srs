@@ -4,25 +4,59 @@ import getWeb3 from "../getWeb3";
 
 import "./Leaderboard.css";
 
+import Contribution from "../components/contribution";
+
+
 class Leaderboard extends Component {
   render() {
     return (
-      <div className="Leaderboard">
-        <div className="container">
-          <h1>Leaderboards:</h1>
-          <p>
-            SRS is a simple ethereum based UBI, based on a simple redistribution
-            scheme that splits funds equally amongst all contributors; or as we
-            like to call it: a reverse ponzi scheme that benefits the poor and
-            disadvantages the rich.
-          </p>
-
-          <button onClick={this.OnContribute} className="btn btn-primary">
-            Contribute
-          </button>
-          <br></br>
-          <a href="ethereum.org">Click Here to read the white paper</a>
-          <h2>Currently Raised</h2>
+      <div className="container">
+        <div className="Leaderboard">
+          <h1>Top Contributors</h1>
+          <table class="table">
+            <thead>
+              <tr>
+                <th style={{ width: "5%" }} scope="col">
+                  #
+                </th>
+                <th style={{ width: "5%" }} scope="col">
+                  Name
+                </th>
+                <th style={{ width: "90%" }} scope="col">
+                  Message
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>
+                  loremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremlorem
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     );

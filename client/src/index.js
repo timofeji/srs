@@ -4,14 +4,17 @@ import * as serviceWorker from './serviceWorker';
 
 import App from './containers/AppContainer';
 import Leaderboard from './containers/LeaderboardContainer';
+import Contribute from './containers/ContributeContainer';
 
-import './index.css';
+import 'font-awesome/css/font-awesome.min.css';
 import 'bootstrap/dist/css/bootstrap.css';
+import './index.css';
 
 ReactDOM.render(
   <div>
     <App />
     <Leaderboard />
+    <Contribute />
   </div>,
   document.getElementById("root")
 );

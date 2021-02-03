@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import SimpleRedistributionScheme from "../contracts/SimpleRedistributionScheme.json";
 import getWeb3 from "../getWeb3";
 
+
 import "./App.css";
 
 import bgImg from '../assets/bg.jpg';
 
 class App extends Component {
-  state = { storageValue: 0, web3: null, accounts: null, contract: null };
+  state = { totalRaised: 0, web3: null, accounts: null, contract: null };
 
   componentDidMount = async () => {
     try {
@@ -36,7 +37,6 @@ class App extends Component {
       console.error(error);
     }
   };
-
   runExample = async () => {
     const { web3, accounts, contract } = this.state;
     const weiRaisedValue = await contract.methods.totalWeiRaised().call();
@@ -65,7 +65,7 @@ class App extends Component {
     return (
       <div className="App">
         <img className="App-Landing" src={bgImg} alt="BigCo Inc. logo" />
-        <p className="App-Wallet">Connected wallet: {this.state.accounts[0]}</p>
+        <p className="App-Wallet">connected wallet: {this.state.accounts[0]}</p>
         <div className="App-header">
           <div className="container">
             <h1>Simple Redistribution Scheme</h1>
@@ -76,11 +76,35 @@ class App extends Component {
               that benefits the poor and disadvantages the rich.
             </p>
 
-            <button onClick={this.OnContribute} className="btn btn-primary">
-              Contribute
-            </button>
             <br></br>
-            <div>The total fund value is: {this.state.totalFund} Ξ</div>
+            <div className="row">
+              <div className="col-md-6 App-Cycle-Info">
+                <h2>Current Cycle:</h2>
+                <p>Total Fund: {this.state.totalFund} Ξ</p>
+                <p>Min. Contribution: {this.state.individualBenefit} Ξ</p>
+                <p>Individual Benefit: {this.state.individualBenefit} Ξ</p>
+                <button onClick={this.OnContribute} className="btn btn-primary">
+                  Contribute
+                </button>
+              </div>
+
+              <div className="col-md-6 App-Cycle-Info">
+                <h2>Total Contributions:</h2>
+                <p>Total Fund: {this.state.totalFund} Ξ</p>
+                <p>Min. Contribution: {this.state.individualBenefit} Ξ</p>
+                <p>Individual Benefit: {this.state.individualBenefit} Ξ</p>
+                <button onClick={this.OnContribute} className="btn btn-primary">
+                  Contribute
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div className="clickdown">
+            <a
+              className="fa fa-angle-down fa-3x"
+              href="https://www.instagram.com/timofeji/"
+            ></a>
           </div>
         </div>
       </div>

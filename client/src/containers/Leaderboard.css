@@ -1,0 +1,21 @@
+.Leaderboard{
+
+    color: white;
+    text-align: center;
+
+    margin: 1.2em;
+    background: linear-gradient(45deg, #2AC9DB 0%,
+    #009BFF 35%,
+    #CF77F3 100%);
+
+    background-color: #038cfc;
+    box-shadow:
+    5px 5px 10px #CF77F3,
+    0px 5px 10px #009BFF,
+    -5px 5px 10px #2AC9DB;
+}
+
+.Leaderboard h1 {
+    padding-bottom: 20px;
+    /* border-bottom: 5px dashed  #CF77F3 ; */
+}
