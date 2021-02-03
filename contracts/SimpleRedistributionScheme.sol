@@ -1,11 +1,16 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.7.4;
 
+struct CycleContribution{
+  string name;
+  string message; 
+}
+
 
 contract SimpleRedistributionScheme {
 
   uint public minimumContribution;
-  uint public totalWeiRaised = 100;
+  uint public totalWeiRaised = 0;
 
   mapping(address => bool) public contributors;
 
@@ -23,10 +28,5 @@ contract SimpleRedistributionScheme {
   }
 
   function releaseFunds() private {
-
-  }
-
-  function getTotalFund() public view returns (uint) {
-    return totalWeiRaised;
   }
 }

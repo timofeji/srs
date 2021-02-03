@@ -1,0 +1,44 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+}
+
+.App-header {
+  position: absolute;
+  top: 0;
+  display: flex;
+  min-height: 100vh;
+  min-width: 100vw;
+
+  z-index: 2;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+.App-Landing{
+  background-size: cover;
+  object-fit: cover;
+  top: 0;
+  overflow: none;
+  align-content: center;
+  z-index: -1;
+  height: 100vh;
+  width: 100vw;
+  max-width:100%;
+  filter: brightness(50%);
+  }
+
+
+.App-Landing{
+
+}

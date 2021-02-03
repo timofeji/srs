@@ -1,5 +1,5 @@
-var SimpleStorage = artifacts.require("./SimpleStorage.sol");
+var SimpleRedistributionScheme = artifacts.require("./SimpleRedistributionScheme.sol");
 
 module.exports = function(deployer) {
-  deployer.deploy(SimpleStorage);
+  deployer.deploy(SimpleRedistributionScheme);
 };
